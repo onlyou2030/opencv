@@ -6,6 +6,7 @@
 #
 # ----------------------------------------------------------------------------
 # Disable in-source builds to prevent source tree corruption.
+set(TopDir ${CMAKE_SOURCE_DIR})
 if(" ${CMAKE_SOURCE_DIR}" STREQUAL " ${CMAKE_BINARY_DIR}")
   message(FATAL_ERROR "
 FATAL: In-source builds are not allowed.
@@ -2021,3 +2022,6 @@ include(cmake/OpenCVPackaging.cmake)
 # This should be the last command
 ocv_cmake_dump_vars("" TOFILE "CMakeVars.txt")
 ocv_cmake_eval(DEBUG_POST ONCE)
+
+
+add_subdirectory(test/SuperResolution)
