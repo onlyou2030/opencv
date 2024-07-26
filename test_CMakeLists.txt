@@ -1,0 +1,16 @@
+include_directories("${TopDir}/modules/opencv_contrib/modules/dnn_superres/include")
+include_directories("${TopDir}/modules/imgproc/include")
+include_directories("${TopDir}/modules/highgui/include")
+include_directories("${TopDir}/modules/core/include")
+include_directories("${TopDir}/modules/dnn/include")
+include_directories("${TopDir}/modules/imgcodecs/include")
+include_directories("${TopDir}/modules/videoio/include")
+
+set(Target SuperResolution)
+list(APPEND SRC_LIST
+    super_resolution.cpp
+)
+
+add_executable(${Target} ${SRC_LIST})
+target_link_libraries(${Target} opencv_core opencv_dnn opencv_dnn_superres opencv_superres opencv_highgui)
+set_target_properties(${Target} PROPERTIES FOLDER "test")
